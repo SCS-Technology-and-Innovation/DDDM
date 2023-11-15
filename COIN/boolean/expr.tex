@@ -1,67 +1,32 @@
-\documentclass[aspectratio=169,xcolor={dvipsnames,rgb}]{beamer}
+\documentclass[xcolor={dvipsnames,rgb}]{beamer}
 
-\beamertemplatenavigationsymbolsempty
-
-\usepackage{tikz}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-
-\usetikzlibrary{positioning}
-\usetikzlibrary{backgrounds}
-\usetikzlibrary{tikzmark}
-\usetikzlibrary{shapes,arrows,calc}
-
-\newcommand{\highlight}[2]{\colorbox{#1}{$\mathstrut #2$}}
-
-\definecolor{variable}{HTML}{999999}
-\definecolor{operator}{HTML}{bbbbbb}
-\definecolor{vtrue}{HTML}{66ff66}
-\definecolor{vfalse}{HTML}{ff6666}
-\definecolor{rtrue}{HTML}{aaffaa}
-\definecolor{rfalse}{HTML}{ffaaaa}
-
-\tikzstyle{into} = [draw, -triangle 45, shorten >=0pt]
-
-\tikzstyle{label} = [minimum height=2em, minimum width=2em]
-\tikzstyle{var} = [draw, rectangle, minimum height=2em, minimum width=2em, fill=variable]
-\tikzstyle{oper} = [draw, rectangle, minimum height=2em, minimum width=2em, fill=operator]
-\tikzstyle{it} = [draw, rectangle, minimum height=2em, minimum width=2em, fill=vtrue]
-\tikzstyle{if} = [draw, rectangle, minimum height=2em, minimum width=2em, fill=vfalse]
-\tikzstyle{ot} = [draw, rectangle, minimum height=2em, minimum width=2em, fill=rtrue]
-\tikzstyle{of} = [draw, rectangle, minimum height=2em, minimum width=2em, fill=rfalse]
+\input{alldefs}
 
 \begin{document}
 
 \begin{frame}{Evaluation of a \textit{Boolean expression}}
 
+  % https://github.com/st--/annotate-equations/blob/main/examples/demo_manual_annotate_beamer.tex#L55
 
-  % https://i.stack.imgur.com/2X1Jv.png
-    \colorlet{ca}{Peach!30}
-    \colorlet{co}{Goldenrod!30}
-    \colorlet{cn}{Tan}
-    \colorlet{ci}{Sepia!30}
-
-% https://github.com/st--/annotate-equations/blob/main/examples/demo_manual_annotate_beamer.tex#L55
-    
-    \onslide<+->{
-      \begin{equation*}
-        \text{Expression:} \,
-        \tikzmarknode{notand}{\highlight{cn}{\neg}}
-        \tikzmarknode{aandb}{\highlight{ca}{(a \wedge b)}}
-        \tikzmarknode{final}{\highlight{ci}{\rightarrow}}
-        \tikzmarknode{cord}{\highlight{co}{(c \vee d)}}
-      \end{equation*}
-    }
-
+  
+  \onslide<+->{
+    \begin{equation*}
+      \text{Expression:} \,
+      \tikzmarknode{notand}{\highlight{cn}{\neg}}
+      \tikzmarknode{aandb}{\highlight{ca}{(a \wedge b)}}
+      \tikzmarknode{final}{\highlight{ci}{\rightarrow}}
+      \tikzmarknode{cord}{\highlight{co}{(c \vee d)}}
+    \end{equation*}
+  }
+  
   \begin{center}
     \begin{tikzpicture}
-
-      \onslide<17-18,34-35>{\fill [fill=ci] (-1.2, 0.1) rectangle (7, 5);}     
-      \onslide<13-15,32-35>{\fill [fill=cn] (-1, 2.5) rectangle (4.8, 4.7);}      
+      
+      \onslide<17-18,32-35>{\fill [fill=ci] (-1.2, 0.1) rectangle (7, 5);}     
+      \onslide<13-15,30-35>{\fill [fill=cn] (-1, 2.5) rectangle (4.8, 4.7);}      
       \onslide<7-8,24-35>{\fill [fill=ca] (-0.7, 2.5) rectangle (2.7, 4.5);}
       \onslide<10-11,30-35>{\fill [fill=co] (-0.7, 0.5) rectangle (2.7, 2.5);}      
-
+      
       % variables
       \onslide<2->{\node[var](a) at (0, 4){$a$};}
       \onslide<3->{\node[var](b) at (0, 3){$b$};}
