@@ -1,0 +1,82 @@
+\usepackage[left=3mm,right=3mm,top=3mm,bottom=3mm]{geometry}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[table]{xcolor}
+\usepackage{natbib}
+\usepackage{rotating}
+\usepackage{xurl}
+\usepackage{doi}
+\usepackage{fancyhdr}
+\usepackage{caption,subcaption}
+\usepackage[object=vectorian]{pgfornament} %%  http://altermundus.com/pages/tkz/ornament/index.html
+\usepackage{lipsum,tikz}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[many]{tcolorbox}
+\usepackage{varwidth}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+\usepackage{marvosym}
+
+\newcommand{\tbd}{\textcolor{red}{pending}}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usetikzlibrary{positioning,calc}
+
+\tikzstyle{message} = [rectangle, minimum height=2em, minimum width=2em, execute at begin node={\begin{varwidth}{40mm}},execute at end node={\end{varwidth}}]
+
+\newcommand{\phone}[3]{\begin{tikzpicture}[font=\sffamily]
+\fill[blue!50] (0,8.3) rectangle (5,8.6);
+\fill[white] (0,0) rectangle (5,8.3);
+\draw[rounded corners,line width=1.5mm] (0,0) rectangle (5,9);
+\fill[rounded corners] (0,8.6) |- (2.5,9) -| (5,8.6);
+\fill[rounded corners] (0,0.5) |- (2.5,0) -| (5,0.5);
+\draw[ultra thin,white] (4,8.85) circle (0.1);
+\draw[rounded corners,very thin,white,fill=black!90] (2,0.05) rectangle (3,0.35);
+\draw (2.5,5) node[message]  {#3}; % TEXT CONTENT GOES HERE
+\begin{scope}[yshift=8.45cm]
+\draw (2.5,0) node {\tiny #1}; % TIME GOES HERE
+\fill[green!50!black] (4.55,.08) rectangle (4.75,-.08);
+\draw (4.8,-.08) rectangle (4.55,.08);
+\fill (4.8,-.04) rectangle (4.83,.04);
+\draw (4.55,0) node[left,inner sep=1pt] (i) {\tiny #2\%}; % BATTERY LEVEL GOES HERE
+\coordinate (ii) at ($(i.west)+(-0.15,-.075)$);
+\fill (ii) circle (0.02cm);
+\foreach \i in {1,...,4} {%
+    \draw ($(ii)+(135:{0.04*\i})$) arc (135:45:{0.04*\i});
+}
+\end{scope}
+\foreach \i in {2.3,2.5,2.7} {
+    \foreach \j in {0.8,1,1.2} {
+        \fill (\i,\j) circle (1.2pt);
+    }
+}
+\fill[green,rounded corners] (0.4,0.8) rectangle (0.9,1.3);
+\begin{scope}[shift={(0.65,1.05)}]
+\fill[white] (135:0.2)--($(135:0.2)+(45:0.075)$)--($(135:0.1)+(45:0.075)$)--(135:0.1) to[out=-135,in=-135] (-45:0.1)--($(-45:0.1)+(45:0.075)$)--($(-45:0.2)+(45:0.075)$)--(-45:0.2) to[out=-135,in=-135] (135:0.2);
+\end{scope}
+\fill[blue,rounded corners] (1.3,0.8) rectangle (1.8,1.3);
+\begin{scope}[shift={(1.55,1.05)}]
+\fill[white,rounded corners=1pt] (-0.175,0.125) rectangle (0.175,-0.125);
+\draw[blue] (-0.175,0.125)--(0,0)--(0.175,0.125);
+\end{scope}
+\fill[cyan,rounded corners] (3.2,0.8) rectangle (3.7,1.3);
+\begin{scope}[shift={(3.45,1.05)}]
+\draw[white,thick] (0,0) circle (0.15);
+\draw[white,thick] (-.15,0)--(.15,0);
+\foreach \i in {-150,-90,-30} {
+    \draw[white,thick] (0,.15) to[out=\i,in=-\i] (0,-.15);
+}
+\draw[white,thick] (150:0.15)--(30:0.15);
+\draw[white,thick] (-150:0.15)--(-30:0.15);
+\end{scope}
+\fill[gray,rounded corners] (4.1,0.8) rectangle (4.6,1.3);
+\begin{scope}[shift={(4.35,1.05)}]
+\draw[ultra thick,white] (0,0) circle (0.13);
+\foreach \i in {0,45,...,315} {
+    \coordinate (x) at (\i:0.15);
+    \fill[white,rounded corners=0.1pt] ($(x)+(\i-90:0.03)$)--($(x)+(\i-90:0.03)+(\i:0.04)$)--($(x)+(\i+90:0.03)+(\i:0.04)$)--($(x)+(\i+90:0.03)$)--cycle;
+}
+\end{scope}
+\end{tikzpicture}}
+
+\pagestyle{empty}
