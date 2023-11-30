@@ -74,5 +74,4 @@ plt.clf()
 movie = animation.FuncAnimation(fig, twostep, frames = 200, repeat = False, init_func = reset)
 
 movie.save('formation.avi')
-# for linux, use
-# ffmpeg -i formation.avi -c:v mpeg4 formation.mp4
+
